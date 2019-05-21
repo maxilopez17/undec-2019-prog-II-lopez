@@ -1,0 +1,10 @@
+package dominio;
+
+public class TestLosSimpsons {
+	public Static void main(String [] args) {
+		Bart b1= new Bart;
+	}
+	
+	
+	
+}

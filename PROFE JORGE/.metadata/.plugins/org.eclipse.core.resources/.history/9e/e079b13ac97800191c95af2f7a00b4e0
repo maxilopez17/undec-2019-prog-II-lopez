@@ -1,0 +1,20 @@
+package dominio;
+
+public class Persona {
+	private String nombre;
+	private String apellido;
+	
+	
+	public persona() {
+		this.nombre="";
+		this.apellido="";
+	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
+	
+	public String getApellido() {
+		return this.apellido;
+	}
+}

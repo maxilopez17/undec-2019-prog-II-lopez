@@ -1,0 +1,38 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import dominio.Persona;
+
+class Test {
+
+	@org.junit.jupiter.api.Test
+	void test01() {
+		
+		Persona p1=new Persona();
+		
+		String nombre=p1.getNombre;
+		String apellido=p1.getApellido;
+		
+		
+		assertEquals("",nombre);
+		assertEquals("",apellido);
+		
+	}
+	@org.junit.jupiter.api.Test
+	void test02() {
+		
+		Persona p1=new Persona();
+		
+		p1.setNombre("Juan");
+		p1.setApellido("Gonzalez");
+		
+		String nombre=p1.getNombre;
+		String apellido=p1.getApellido;
+		
+		
+		assertEquals("Juan",nombre);
+		assertEquals("Gonzalez",apellido);
+		
+	}
+}

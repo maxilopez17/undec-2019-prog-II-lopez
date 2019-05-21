@@ -1,0 +1,21 @@
+package dominio;
+
+public class Arbitro extends Persona{
+	private String apellido;
+	
+	
+	
+	public Arbitro() {
+		super();
+		this.apellido="";
+	}
+
+
+
+	public void setApellido(String apellido) {
+		this.apellido=apellido;
+		
+	}
+	
+	
+}

@@ -1,0 +1,10 @@
+package dominio;
+
+public class Homero extends Abe{
+
+	
+	public Abe() {
+		System.out.println("Soy Homero");
+	}
+	
+}
