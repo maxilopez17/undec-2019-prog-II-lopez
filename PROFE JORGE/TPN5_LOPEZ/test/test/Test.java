@@ -178,6 +178,33 @@ class Test {
 		assertEquals(expectedFechaInicio,actualFechaInicio);
 		assertEquals(expectedFechaFin,actualFechaFin);
 	}
+	@org.junit.jupiter.api.Test
+	void test05() { //h
+		//Arrange
+		Implementacion implementacion= new Implementacion("Nombre y Apellido","Carrera","Matricula");
+		Alumnos c01= new Alumnos("Aron riperto","Ingenieria en Sistemas","100221");
+		Alumnos c02= new Alumnos("Lopez Maximiliano","Licenciatura en sistemas","195303");
+		Alumnos c03= new Alumnos("Matias Perez","Ingenieria en Sistemas","101220");
+		Alumnos c04= new Alumnos("Pepe Loro","Licenciatura en Sistemas","100222");
+		Alumnos c05= new Alumnos("Fabriio Herrera","Licenciatura en Sistemas","123900");
+		Alumnos c06= new Alumnos("Pepe Loro","Licenciatura en Sistemas","100222");
+		Alumnos c07= new Alumnos("Aron riperto","Ingenieria en Sistemas","100221");
+		Alumnos c08= new Alumnos("Aron riperto","Ingenieria Agronoma","100221");
+		Alumnos c09= new Alumnos("Susy rere","Abogacia","902020");
+		//Act
+
 	
+		
+		// Assert
+		assertEquals(true, implementacion.agregarAlumnos(c01));
+		assertEquals(true, implementacion.agregarAlumnos(c02));
+		assertEquals(true, implementacion.agregarAlumnos(c03));
+		assertEquals(true, implementacion.agregarAlumnos(c04));
+		assertEquals(true, implementacion.agregarAlumnos(c05));
+		assertEquals(false,implementacion.agregarAlumnos(c06));
+		assertEquals(false,implementacion.agregarAlumnos(c07));
+		assertEquals(false,implementacion.agregarAlumnos(c08));
+		assertEquals(false,implementacion.agregarAlumnos(c09));
+	}
 	
 }
