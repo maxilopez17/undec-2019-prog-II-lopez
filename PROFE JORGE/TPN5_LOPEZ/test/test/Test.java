@@ -2,7 +2,9 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import dominio.AnioAcademico;
 import dominio.Carrera;
+import dominio.Materia;
 
 class Test {
 
@@ -14,7 +16,7 @@ class Test {
 		String expectedPlan="128/12";
 		
 		//Act
-		Carrera c01= new Carrera(expectdNombre, expectdAbreviatura,expectedPlan);
+		Carrera c01= new Carrera(expectedNombre, expectedAbreviatura,expectedPlan);
 		String actualNombre=c01.getNombre();
 		String actualAbreviatura=c01.getAbreviatura();
 		String actualPlan=c01.getPlan();
@@ -22,8 +24,8 @@ class Test {
 		
 		
 		// Assert
-		assertEquals(expectNombre,actualNombre);
-		assertEquals(expectAbreviatura,actualAbreviatura);
+		assertEquals(expectedNombre,actualNombre);
+		assertEquals(expectedAbreviatura,actualAbreviatura);
 		assertEquals(expectedPlan,actualPlan);
 		
 	}
@@ -39,7 +41,7 @@ class Test {
 		
 		// Assert
 		assertEquals(false,actual01);
-		assertEquals(true,actual02);
+		assertEquals(false,actual02);
 	}
 	@org.junit.jupiter.api.Test
 	void test03() {//C
@@ -51,15 +53,15 @@ class Test {
 		
 		
 		//Act
-		Materia c01= new Materia(expectdNombre, expectdAbreviatura,expectedAnio);
+		Materia c01= new Materia(expectedNombre, expectedAbreviatura,expectedAnio);
 		String actualNombre=c01.getNombre();
 		String actualAbreviatura=c01.getAbreviatura();
-		String actualAnio=c01.getAnioAcademico();
+		AnioAcademico actualAnio=c01.getAnioAcademico();
 		
 		// Assert
-		assertEquals(expectNombre,actualNombre);
-		assertEquals(expectAbreviatura,actualAbreviatura);
-		assertEquals(expectedAnio,actualAnioAcademico);
+		assertEquals(expectedNombre,actualNombre);
+		assertEquals(expectedAbreviatura,actualAbreviatura);
+		assertEquals(expectedAnio,actualAnio);
 	}
 	@org.junit.jupiter.api.Test
 	void test04() { //d
@@ -91,7 +93,7 @@ class Test {
 		Materia c08= new Materia("Electronica Digital","ED",AnioAcademico.I);
 		Materia c09= new Materia("Fisica I","F I",AnioAcademico.I);
 		Materia c10= new Materia("Quimica","Q",AnioAcademico.I);
-		Materia c11= new Materia("Programacion I","Prog I",AnioAcademico.I);
+		Materia c11= new Materia("Programacion I","Prog I",AnioAcademico.II);
 		Materia c12= new Materia("Quimica","Q",AnioAcademico.I);
 		//Act
 
@@ -179,22 +181,29 @@ class Test {
 		assertEquals(expectedFechaFin,actualFechaFin);
 	}
 	@org.junit.jupiter.api.Test
-	void test05() { //h
+	void test08() { //h
 		//Arrange
-		Implementacion implementacion= new Implementacion("Nombre y Apellido","Carrera","Matricula");
-		Alumnos c01= new Alumnos("Aron riperto","Ingenieria en Sistemas","100221");
-		Alumnos c02= new Alumnos("Lopez Maximiliano","Licenciatura en sistemas","195303");
-		Alumnos c03= new Alumnos("Matias Perez","Ingenieria en Sistemas","101220");
-		Alumnos c04= new Alumnos("Pepe Loro","Licenciatura en Sistemas","100222");
-		Alumnos c05= new Alumnos("Fabriio Herrera","Licenciatura en Sistemas","123900");
-		Alumnos c06= new Alumnos("Pepe Loro","Licenciatura en Sistemas","100222");
-		Alumnos c07= new Alumnos("Aron riperto","Ingenieria en Sistemas","100221");
-		Alumnos c08= new Alumnos("Aron riperto","Ingenieria Agronoma","100221");
-		Alumnos c09= new Alumnos("Susy rere","Abogacia","902020");
+		Carrera carrera= new Carrera("Ingenieria en Sistemas", "IS","072/08");
+		Materia materia= new Materia("Algoritmo","Alg",AnioAcademico.I);
+		carrera.agregarMaterias(materia);
+		Carrera carrera1= new Carrera("Licenciatura en Sistemas","LS","075/08");
+		Carrera carrera2= new Carrera("Abogacia","A","071/03");
+		
+		
+		
+		
+		Implementacion implementacion= new Implementacion(materia,"2019","15-03-2019","25-11-2019");	
+		Alumno c01= new Alumno("Aron","riperto","37.000.000",carrera,"100221");
+		Alumno c02= new Alumno("Lopez","Maximiliano","37.186.821",carrera1,"195303");
+		Alumno c03= new Alumno("Matias","Perez","36.282.222",carrera,"101220");
+		Alumno c04= new Alumno("Pepe","Loro","36.186.777",carrera1,"100222");
+		Alumno c05= new Alumno("Fabriio","Herrera","35.282.844",carrera1,"123900");
+		Alumno c06= new Alumno("Pepe","Loro","36.186.777",carrera1,"100222");
+		Alumno c07= new Alumno("Aron","riperto","37.000.000",carrera,"100221");
+		Alumno c08= new Alumno("Aron","riperto","37.000.000",carrera,"100221");
+		Alumno c09= new Alumno("Susy","rere","12.282.111",carrera2,"902020");
 		//Act
 
-	
-		
 		// Assert
 		assertEquals(true, implementacion.agregarAlumnos(c01));
 		assertEquals(true, implementacion.agregarAlumnos(c02));
@@ -206,5 +215,5 @@ class Test {
 		assertEquals(false,implementacion.agregarAlumnos(c08));
 		assertEquals(false,implementacion.agregarAlumnos(c09));
 	}
-	
+
 }
